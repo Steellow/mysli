@@ -1,7 +1,8 @@
-import { StatusBar as ExpoStatusBar } from "expo-status-bar";
-import React from "react";
-import { StyleSheet, Text, View, StatusBar } from "react-native";
-import ListWrapper from "./components/ListWrapper";
+import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StatusBar, StyleSheet, Text, View } from 'react-native';
+
+import ListWrapper from './components/ListWrapper';
 
 const App = () => (
   <View style={s.container}>
@@ -20,16 +21,16 @@ const App = () => (
 const s = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     paddingTop: StatusBar.currentHeight,
     marginHorizontal: 20, // Always good to have some horizontal amrgin for spacing purposes
     marginTop: 12,
   },
   title: {
     fontSize: 36,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     paddingBottom: 12,
-    borderBottomColor: "lightgrey",
+    borderBottomColor: 'lightgrey',
     borderBottomWidth: 2,
   },
 });
