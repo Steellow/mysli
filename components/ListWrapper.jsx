@@ -3,9 +3,7 @@ import { FlatList, StyleSheet } from 'react-native';
 
 import ListItem from './ListItem';
 
-const ListWrapper = () => {
-  const items = ['Noodles 🍜', 'Milk 🥛', 'Chicken 🐤', 'Pizza 🍕'];
-
+const ListWrapper = ({ items }) => {
   const renderItem = ({ item }) => <ListItem text={item} />;
 
   return (
