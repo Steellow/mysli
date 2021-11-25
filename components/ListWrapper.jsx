@@ -1,8 +1,27 @@
-import React from "react";
-import ListItem from "./ListItem";
+import React from 'react';
+import { FlatList, StyleSheet } from 'react-native';
+
+import ListItem from './ListItem';
 
 const ListWrapper = () => {
-  return <ListItem />;
+  const items = ['Noodles 🍜', 'Milk 🥛', 'Chicken 🐤', 'Pizza 🍕'];
+
+  const renderItem = ({ item }) => <ListItem text={item} />;
+
+  return (
+    <FlatList
+      style={s.list}
+      data={items}
+      renderItem={renderItem}
+      keyExtractor={(_, idx) => idx.toString()}
+    />
+  );
 };
+
+const s = StyleSheet.create({
+  list: {
+    marginTop: 18,
+  },
+});
 
 export default ListWrapper;

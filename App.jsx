@@ -3,6 +3,7 @@ import React from 'react';
 import { StatusBar, StyleSheet, Text, View } from 'react-native';
 
 import ListWrapper from './components/ListWrapper';
+import { FS } from './util/StylesUtil';
 
 const App = () => (
   <View style={s.container}>
@@ -23,11 +24,11 @@ const s = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     paddingTop: StatusBar.currentHeight,
-    marginHorizontal: 20, // Always good to have some horizontal amrgin for spacing purposes
+    paddingHorizontal: 24, // Always good to have some horizontal amrgin for spacing purposes
     marginTop: 12,
   },
   title: {
-    fontSize: 36,
+    fontSize: FS.xl,
     fontWeight: 'bold',
     paddingBottom: 12,
     borderBottomColor: 'lightgrey',
