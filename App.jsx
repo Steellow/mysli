@@ -4,6 +4,7 @@ import { StatusBar, StyleSheet, Text, View } from 'react-native';
 
 import BottomBar from './components/BottomBar';
 import ListWrapper from './components/ListWrapper';
+import TitleBar from './components/TitleBar';
 import { FS } from './util/StylesUtil';
 
 const App = () => {
@@ -19,8 +20,7 @@ const App = () => {
   return (
     <View style={s.container}>
       <ExpoStatusBar style="auto" />
-
-      <Text style={s.title}>Mysli</Text>
+      <TitleBar />
       <ListWrapper {...{ items }} />
       <BottomBar {...{ addItem }} />
     </View>
@@ -34,13 +34,6 @@ const s = StyleSheet.create({
     paddingTop: StatusBar.currentHeight,
     paddingHorizontal: 24, // Always good to have some horizontal amrgin for spacing purposes
     marginTop: 12,
-  },
-  title: {
-    fontSize: FS.xl,
-    fontWeight: 'bold',
-    paddingBottom: 12,
-    borderBottomColor: 'lightgrey',
-    borderBottomWidth: 2,
   },
 });
 
