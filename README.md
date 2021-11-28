@@ -9,8 +9,13 @@
 
 ## Ideas
 
+- Clean code
+  - ticked = checked everywhere (cuz bouncyCheckox uses it)
 - List
   - Trash icon to delete ticked items
+  - Grey text for ticked items
+  - Reorder items
+  - Remember item positions
 - Adding items
   - Suggest old previously added items
     - Hold suggestion to delete
@@ -21,3 +26,5 @@
   - Dark theme
 - Quality check
   - Check UI on different sized phone
+- Settings screen
+  - See item order array

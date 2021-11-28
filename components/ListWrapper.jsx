@@ -3,15 +3,15 @@ import { FlatList, StyleSheet } from 'react-native';
 
 import ListItem from './ListItem';
 
-const ListWrapper = ({ items }) => {
-  const renderItem = ({ item }) => <ListItem text={item} />;
+const ListWrapper = ({ items, tickItem }) => {
+  const renderItem = ({ item }) => <ListItem {...{ item, tickItem }} />;
 
   return (
     <FlatList
       style={s.list}
       data={items}
       renderItem={renderItem}
-      keyExtractor={(_, idx) => idx.toString()}
+      keyExtractor={(item) => item.name}
     />
   );
 };

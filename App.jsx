@@ -5,23 +5,48 @@ import { StatusBar, StyleSheet, Text, View } from 'react-native';
 import BottomBar from './components/BottomBar';
 import ListWrapper from './components/ListWrapper';
 import TitleBar from './components/TitleBar';
-import { FS } from './util/StylesUtil';
 
 const App = () => {
   const [items, setItems] = useState([
-    'Noodles 🍜',
-    'Milk 🥛',
-    'Chicken 🐤',
-    'Pizza 🍕',
+    {
+      name: 'Noodles 🍜',
+      ticked: false,
+    },
+    {
+      name: 'Milk 🥛',
+      ticked: false,
+    },
+    {
+      name: 'Chicken 🐤',
+      ticked: false,
+    },
+    {
+      name: 'Pizza 🍕',
+      ticked: false,
+    },
   ]);
 
   const addItem = (newItem) => setItems([...items, newItem]);
 
+  const tickItem = (item, isChecked) => {
+    // Doesn't work?
+    const copy = item;
+    copy.ticked = isChecked;
+    setItems(items.map((i) => (i.name === copy.name ? copy : i)));
+  };
+
+  const removeTicked = () => {
+    console.log('asd');
+    console.log(items);
+    setItems(items.filter((i) => !i.ticked));
+    console.log(items);
+  };
+
   return (
     <View style={s.container}>
       <ExpoStatusBar style="auto" />
-      <TitleBar />
-      <ListWrapper {...{ items }} />
+      <TitleBar {...{ removeTicked }} />
+      <ListWrapper {...{ items, tickItem }} />
       <BottomBar {...{ addItem }} />
     </View>
   );

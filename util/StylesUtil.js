@@ -1,4 +1,4 @@
-// FS = FontSize
+// FontSize
 export const FS = {
   m: 18,
   xl: 36,

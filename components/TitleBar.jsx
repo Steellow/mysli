@@ -3,11 +3,13 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { FS } from '../util/StylesUtil';
 
-const TitleBar = () => {
+const TitleBar = ({ removeTicked }) => {
+  const onPress = () => removeTicked();
+
   return (
     <View style={s.container}>
       <Text style={s.title}>Mysli</Text>
-      <TouchableOpacity style={s.buttonContainer}>
+      <TouchableOpacity style={s.buttonContainer} {...{ onPress }}>
         <Text style={s.buttonText}>🗑</Text>
       </TouchableOpacity>
     </View>

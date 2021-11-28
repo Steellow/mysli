@@ -4,15 +4,17 @@ import BouncyCheckbox from 'react-native-bouncy-checkbox';
 
 import { FS } from '../util/StylesUtil';
 
-const ListItem = ({ text }) => {
+const ListItem = ({ item, tickItem }) => {
+  const onPress = (isChecked) => tickItem(item, isChecked);
+
   return (
     <View style={s.wrapper}>
       <BouncyCheckbox
         fillColor="red"
         unfillColor="#FFFFFF"
         textStyle={s.text}
-        // onPress={(isChecked) => setChecked(isChecked)}
-        {...{ text }}
+        text={item.name}
+        {...{ onPress }}
       />
     </View>
   );
