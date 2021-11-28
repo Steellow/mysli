@@ -3,8 +3,8 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { FS } from '../util/StylesUtil';
 
-const TitleBar = ({ removeTicked }) => {
-  const onPress = () => removeTicked();
+const TitleBar = ({ removeChecked }) => {
+  const onPress = () => removeChecked();
 
   return (
     <View style={s.container}>

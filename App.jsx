@@ -1,51 +1,39 @@
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StatusBar, StyleSheet, View } from 'react-native';
 
 import BottomBar from './components/BottomBar';
 import ListWrapper from './components/ListWrapper';
 import TitleBar from './components/TitleBar';
+import { loadItems, storeItems } from './util/AsyncStorageHelper';
 
 const App = () => {
-  const [items, setItems] = useState([
-    {
-      name: 'Noodles 🍜',
-      ticked: false,
-    },
-    {
-      name: 'Milk 🥛',
-      ticked: false,
-    },
-    {
-      name: 'Chicken 🐤',
-      ticked: false,
-    },
-    {
-      name: 'Pizza 🍕',
-      ticked: false,
-    },
-  ]);
+  const [items, setItems] = useState();
 
-  const addItem = (newItem) => setItems([...items, newItem]);
+  useEffect(() => {
+    const setItemsFromStorage = async () => {
+      const loadedItems = await loadItems();
+      setItems(loadedItems);
+    };
+    setItemsFromStorage();
+  }, []);
+
+  useEffect(() => storeItems(items), [items]);
+
+  const addItem = (newItem) => setItems((curItems) => [...curItems, newItem]);
 
   const tickItem = (item, isChecked) => {
-    // Doesn't work?
     const copy = item;
-    copy.ticked = isChecked;
-    setItems(items.map((i) => (i.name === copy.name ? copy : i)));
+    copy.checked = isChecked;
+    setItems(items.map((i) => (i.value === copy.value ? copy : i)));
   };
 
-  const removeTicked = () => {
-    console.log('asd');
-    console.log(items);
-    setItems(items.filter((i) => !i.ticked));
-    console.log(items);
-  };
+  const removeChecked = () => setItems(items.filter((i) => !i.checked));
 
   return (
     <View style={s.container}>
       <ExpoStatusBar style="auto" />
-      <TitleBar {...{ removeTicked }} />
+      <TitleBar {...{ removeChecked }} />
       <ListWrapper {...{ items, tickItem }} />
       <BottomBar {...{ addItem }} />
     </View>

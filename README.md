@@ -2,20 +2,20 @@
 
 **My** **S**hopping **Li**st. Simple app created for my own usage. My first app built with React.
 
-## Notes
+## Stuff
 
-- Trying to always have fontsizes & spacings dividible by 6
-  - For continuity
+- Item object properties
+  - `value`
+  - `checked`
 
 ## Ideas
 
-- Clean code
-  - ticked = checked everywhere (cuz bouncyCheckox uses it)
 - List
-  - Trash icon to delete ticked items
-  - Grey text for ticked items
+  - Grey text for checked items
   - Reorder items
   - Remember item positions
+  - Ability to pin items (always reappear when opening the app)
+  - Disable trash icon if no checked items
 - Adding items
   - Suggest old previously added items
     - Hold suggestion to delete
@@ -28,3 +28,9 @@
   - Check UI on different sized phone
 - Settings screen
   - See item order array
+  - See pinned items
+- Other
+  - Handle errors (AsyncStorageHelper)
+  - Splash screen when loading items
+- Clean code
+  - Custom items hook

@@ -11,7 +11,7 @@ const ListWrapper = ({ items, tickItem }) => {
       style={s.list}
       data={items}
       renderItem={renderItem}
-      keyExtractor={(item) => item.name}
+      keyExtractor={(item) => item.value}
     />
   );
 };

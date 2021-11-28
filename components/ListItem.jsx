@@ -13,7 +13,7 @@ const ListItem = ({ item, tickItem }) => {
         fillColor="red"
         unfillColor="#FFFFFF"
         textStyle={s.text}
-        text={item.name}
+        text={item.value}
         {...{ onPress }}
       />
     </View>

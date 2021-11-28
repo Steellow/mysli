@@ -7,7 +7,7 @@ const BottomBar = ({ addItem }) => {
   const [value, setValue] = useState('');
 
   const onSubmit = (text) => {
-    addItem({ name: text, ticked: false });
+    addItem({ value: text, checked: false });
     setValue('');
   };
 
@@ -15,7 +15,7 @@ const BottomBar = ({ addItem }) => {
     <TextInput
       style={s.input}
       selectionColor="red"
-      onChange={(value) => setValue(value)}
+      onChange={(event) => setValue(event.text)}
       onSubmitEditing={(event) => onSubmit(event.nativeEvent.text)}
       {...{ value }}
     />
