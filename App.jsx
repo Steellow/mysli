@@ -9,16 +9,22 @@ import { loadItems, storeItems } from './util/AsyncStorageHelper';
 
 const App = () => {
   const [items, setItems] = useState();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const setItemsFromStorage = async () => {
       const loadedItems = await loadItems();
       setItems(loadedItems);
+      setLoading(false);
     };
     setItemsFromStorage();
   }, []);
 
-  useEffect(() => storeItems(items), [items]);
+  useEffect(() => {
+    if (!loading) {
+      storeItems(items);
+    }
+  }, [items]);
 
   const addItem = (newItem) => setItems((curItems) => [...curItems, newItem]);
 
