@@ -12,7 +12,7 @@ const ListItem = ({ item, tickItem }) => {
       <BouncyCheckbox
         fillColor="red"
         unfillColor="#FFFFFF"
-        textStyle={s.text}
+        textStyle={item.checked ? s.disabledText : s.text}
         text={item.value}
         {...{ onPress }}
       />
@@ -28,6 +28,10 @@ const s = StyleSheet.create({
   text: {
     fontSize: FS.m,
     color: '#000',
+  },
+  disabledText: {
+    fontSize: FS.m,
+    color: 'grey',
   },
 });
 

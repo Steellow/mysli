@@ -11,7 +11,6 @@
 ## Ideas
 
 - List
-  - Grey text for checked items
   - Reorder items
   - Remember item positions
   - Ability to pin items (always reappear when opening the app)
