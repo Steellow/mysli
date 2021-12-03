@@ -1,6 +1,6 @@
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { StatusBar, StyleSheet, View } from 'react-native';
+import { StatusBar, StyleSheet, Text, View } from 'react-native';
 
 import BottomBar from './components/BottomBar';
 import ListWrapper from './components/ListWrapper';
@@ -36,14 +36,22 @@ const App = () => {
 
   const removeChecked = () => setItems(items.filter((i) => !i.checked));
 
-  return (
-    <View style={s.container}>
-      <ExpoStatusBar style="auto" />
-      <TitleBar {...{ removeChecked }} />
-      <ListWrapper {...{ items, tickItem }} />
-      <BottomBar {...{ addItem }} />
-    </View>
-  );
+  if (loading) {
+    return (
+      <View>
+        <Text>Loading</Text>
+      </View>
+    );
+  } else {
+    return (
+      <View style={s.container}>
+        <ExpoStatusBar style="auto" />
+        <TitleBar {...{ removeChecked }} />
+        <ListWrapper {...{ items, tickItem, setItems }} />
+        <BottomBar {...{ addItem }} />
+      </View>
+    );
+  }
 };
 
 const s = StyleSheet.create({

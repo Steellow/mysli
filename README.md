@@ -15,10 +15,16 @@
   - Remember item positions
   - Ability to pin items (always reappear when opening the app)
   - Disable trash icon if no checked items
+  - Seperate items more clearly? Would make tapping/dragging easier
+  - ListItem
+    - Opening app, disabled items are not checked
 - Adding items
   - Suggest old previously added items
     - Hold suggestion to delete
   - Drag cursor color
+  - Can't add duplicate items
+  - Placeholder text
+  - Position at bottom
 - Theme
   - Can change colors
   - Create spacing util

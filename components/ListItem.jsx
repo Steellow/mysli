@@ -1,20 +1,23 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 
 import { FS } from '../util/StylesUtil';
 
-const ListItem = ({ item, tickItem }) => {
+const ListItem = ({ item, tickItem, drag, isActive }) => {
   const onPress = (isChecked) => tickItem(item, isChecked);
 
   return (
     <View style={s.wrapper}>
       <BouncyCheckbox
+        isChecked={item.isChecked}
         fillColor="red"
         unfillColor="#FFFFFF"
         textStyle={item.checked ? s.disabledText : s.text}
         text={item.value}
         {...{ onPress }}
+        onLongPress={drag} // Undocumented property -_-
+        // Draggable list example uses disabled={isActive} on TouchableOpacity. Is it needed here?
       />
     </View>
   );
