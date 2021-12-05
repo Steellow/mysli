@@ -1,6 +1,6 @@
 # Mysli
 
-**My** **S**hopping **Li**st. Simple app created for my own usage. My first app built with React.
+**My** **S**hopping **Li**st. Simple app created for my own usage. My first app built with React Native.
 
 ## Stuff
 
