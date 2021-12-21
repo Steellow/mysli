@@ -38,6 +38,7 @@ const App = () => {
     const copy = item;
     copy.checked = isChecked;
     setItems(items.map((i) => (i.value === copy.value ? copy : i)));
+    // setItems([]); // For debugging
   };
 
   const removeChecked = () => setItems(items.filter((i) => !i.checked));
@@ -50,12 +51,14 @@ const App = () => {
     );
   } else {
     return (
-      <View style={s.container}>
+      <>
         <ExpoStatusBar style="auto" />
-        <TitleBar {...{ removeChecked }} />
-        <ListWrapper {...{ items, tickItem, setItems }} />
-        <BottomBar {...{ addItem }} />
-      </View>
+        <View style={s.container}>
+          <TitleBar {...{ removeChecked }} />
+          <ListWrapper {...{ items, tickItem, setItems }} />
+          <BottomBar {...{ addItem }} />
+        </View>
+      </>
     );
   }
 };

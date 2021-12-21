@@ -1,7 +1,6 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import DraggableFlatList from 'react-native-draggable-flatlist';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import ListItem from './ListItem';
 
@@ -11,17 +10,24 @@ const ListWrapper = ({ items, tickItem, setItems }) => {
   );
 
   return (
-    <DraggableFlatList
-      style={s.list}
-      data={items}
-      onDragEnd={({ data }) => setItems(data)} // Saves the reordered list after dragging
-      renderItem={renderItem}
-      keyExtractor={(item) => item.value}
-    />
+    <View style={s.wrapper}>
+      <DraggableFlatList
+        style={s.list}
+        data={items}
+        onDragEnd={({ data }) => setItems(data)} // Saves the reordered list after dragging
+        renderItem={renderItem}
+        keyExtractor={(item) => item.value}
+      />
+    </View>
   );
 };
 
 const s = StyleSheet.create({
+  wrapper: {
+    // These attributes causes DraggableFlatList filling empty space, and not growing over other components
+    flexGrow: 1,
+    flex: 1,
+  },
   list: {
     marginTop: 18,
   },
