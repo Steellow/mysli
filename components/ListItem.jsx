@@ -13,7 +13,7 @@ const ListItem = ({ item, tickItem, drag, isActive }) => {
         isChecked={item.isChecked}
         fillColor="red"
         unfillColor="#FFFFFF"
-        textStyle={item.checked ? s.disabledText : s.text}
+        textStyle={[s.text, item.checked ? s.greyText : s.blackText]}
         text={item.value}
         {...{ onPress }}
         onLongPress={drag} // Undocumented property -_-
@@ -25,15 +25,16 @@ const ListItem = ({ item, tickItem, drag, isActive }) => {
 
 const s = StyleSheet.create({
   wrapper: {
-    marginVertical: 12,
     paddingLeft: 4, // Checkbox bounce animation is clipped without left padding
   },
   text: {
+    paddingVertical: 12, // Padding here instead of 'wrapper' to get bigger touch area for BouncyCheckbox
     fontSize: FS.m,
+  },
+  blackText: {
     color: '#000',
   },
-  disabledText: {
-    fontSize: FS.m,
+  greyText: {
     color: 'grey',
   },
 });
