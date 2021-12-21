@@ -17,6 +17,9 @@
   - Seperate items more clearly? Would make tapping/dragging easier
   - ListItem
     - Opening app, disabled items are not checked
+  - Bottom item clips when scrolling
+  - Fix laggy checkbox animation
+    - Do custom component? Good way to learn animations
 - Adding items
   - Suggest old previously added items
     - Hold suggestion to delete
