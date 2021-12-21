@@ -7,7 +7,7 @@ const BottomBar = ({ addItem }) => {
   const [value, setValue] = useState('');
 
   const onSubmit = (text) => {
-    addItem({ value: text, checked: false });
+    addItem(text);
     setValue('');
   };
 

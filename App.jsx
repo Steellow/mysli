@@ -26,7 +26,13 @@ const App = () => {
     }
   }, [items]);
 
-  const addItem = (newItem) => setItems((curItems) => [...curItems, newItem]);
+  const addItem = (newItemText) => {
+    newItemText = newItemText.trim();
+    if (!items.some((e) => e.value === newItemText)) {
+      const newItem = { value: newItemText, checked: false };
+      setItems((curItems) => [...curItems, newItem]);
+    }
+  };
 
   const tickItem = (item, isChecked) => {
     const copy = item;

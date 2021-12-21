@@ -11,15 +11,13 @@ const ListWrapper = ({ items, tickItem, setItems }) => {
   );
 
   return (
-    <GestureHandlerRootView>
-      <DraggableFlatList
-        style={s.list}
-        data={items}
-        onDragEnd={({ data }) => setItems(data)} // Saves the reordered list after dragging
-        renderItem={renderItem}
-        keyExtractor={(item) => item.value}
-      />
-    </GestureHandlerRootView>
+    <DraggableFlatList
+      style={s.list}
+      data={items}
+      onDragEnd={({ data }) => setItems(data)} // Saves the reordered list after dragging
+      renderItem={renderItem}
+      keyExtractor={(item) => item.value}
+    />
   );
 };
 

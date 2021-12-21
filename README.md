@@ -11,7 +11,6 @@
 ## Ideas
 
 - List
-  - Reorder items
   - Remember item positions
   - Ability to pin items (always reappear when opening the app)
   - Disable trash icon if no checked items
@@ -22,9 +21,9 @@
   - Suggest old previously added items
     - Hold suggestion to delete
   - Drag cursor color
-  - Can't add duplicate items
   - Placeholder text
   - Position at bottom
+  - Toast if item already exists
 - Theme
   - Can change colors
   - Create spacing util
